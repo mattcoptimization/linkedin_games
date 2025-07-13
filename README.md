@@ -12,7 +12,7 @@ Famously, the Rabbit R1 "Large Action Model" (their words, not mine) [used an LL
 
 ## The Game
 
-![Solved Puzzle](image.png)
+![Solved Puzzle](resources/image.png)
 
 The [Queens Game](https://www.linkedin.com/games/queens/) has 3 main rules:
 
@@ -26,13 +26,13 @@ Let's solve this "the normal way".
 
 On the left hand side, two columns share two colors. This means that the other colors cannot have a queen. We combine rules 1 and 2 above to say that no queens can be in the first or second column for light blue and red. 
 
-![Puzzle Step 1](image_copy.png)
+![Puzzle Step 1](resources/image_copy.png)
 
 On the right hand side, red is the only available color. This means the rest of the red should be blocked out.
-![Puzzle Step 2](image_copy_2.png)
+![Puzzle Step 2](resources/image_copy_2.png)
 
 In the middle, the yellow row means that no other color can have a queen in that row. This is the only option for the yellow color.
-![Puzzle Step 3](image_copy_3.png)
+![Puzzle Step 3](resources/image_copy_3.png)
 
 We keep going, combining constraints until only one solution is possible.
 If we solve fast enough, we get a flashy solution screen! 
@@ -96,7 +96,7 @@ $$x_{i,j} + x_{i+1,j+1} \leq 1 \quad \forall i \in \{1, 2, ..., n-1\}, j \in \{1
 
 $$x_{i,j} + x_{i+1,j-1} \leq 1 \quad \forall i \in \{1, 2, ..., n-1\}, j \in \{2, 3, ..., n\}$$
 
->Note: The horizontal and vertical adjacency constraints are implicitly satisfied by constraints 1 and 2, since each row and column can have exactly one queen.
+Note: The horizontal and vertical adjacency constraints are implicitly satisfied by constraints 1 and 2, since each row and column can have exactly one queen.
 
 Since this is a feasibility problem, we don't need an objective function. We simply need to find any feasible solution that satisfies all constraints.
 
@@ -270,16 +270,16 @@ Great success!
 
 After an evening of work, LinkedIn is telling me that I am in the top 1% of all solvers on the site.
 
-![Top 1](top_1.png)
+![Top 1](resources/top_1.png)
 
 Interestingly, I am only in the top 25% of all of my connections. Apparently, I am not the first person to automate this. Looking at you, all of my decision science connections!
 
-![Top 25](top_25.png)
+![Top 25](resources/top_25.png)
 
 Somehow, I need to be just a little bit faster.
 
 I solved in 8 seconds, the vast majority of which was taken up by playwright reading the puzzle. 
 
-![8 Seconds](8_seconds.png)
+![8 Seconds](resources/8_seconds.png)
 
 Next up, the LinkedIn Tango game! It is quite similar to this, and I can use a similar methodology to solve.

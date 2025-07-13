@@ -67,16 +67,20 @@ def read_queens_table(page: Page) -> QueensTable:
     # Get all of the cells and store
     all_cells = grid_element.locator(".queens-cell-with-border")
 
+    # Iterate over cells
     for cell_number in range(all_cells.count()):
         element = all_cells.nth(cell_number)
+        # Row major order
         row = cell_number // n_rows
         col = cell_number % n_rows
+        # Get the class
         total_string = element.get_attribute("class")
+        # Find the color index using regex
         color_idx = int(re.search(r"cell-color-(\d+)", total_string).group(1))
 
         if not color_idx in table.colors:
             table.colors[color_idx] = []
-        
+        # Store
         table.colors[color_idx].append((row, col))
         
         

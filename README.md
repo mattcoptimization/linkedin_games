@@ -57,11 +57,13 @@ In mathematical optimization, variables are decisions to be made by the model, c
 placed on the variables in these problems, and parameters are fixed values given in the problem statement.
 
 Lets define each of these for our problem:
+
 1. Variables: Whether or not a specific cell has a queen. This means we have NxN number of variables. If 0, the cell does not have a queen. If 1, the cell does have a queen.
 ```python
 {(i,j): model.NewBoolVar(f"queen_{i}_{j}") for i in range(n_size) for j in range(n_size)}
 ```
 2. Parameters: The color of each cell. For efficiency reasons later, it is best to store this in a dictionary of `{color: [list_of_cells_of_that_color]}`
+
 3. Constraints. Here is where things get a little more complicated:
     * One queen per row
     * One queen per column
